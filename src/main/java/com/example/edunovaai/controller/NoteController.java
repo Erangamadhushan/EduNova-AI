@@ -8,6 +8,7 @@ import com.example.edunovaai.service.NoteService;
 
 @RestController
 @RequestMapping("/notes")
+@CrossOrigin(origins = "http://localhost:8081")
 public class NoteController {
 
     private final NoteService noteService;
