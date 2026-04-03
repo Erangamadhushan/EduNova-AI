@@ -8,7 +8,7 @@ import java.util.*;
 @Service
 public class AIService {
 
-    private final String API_KEY = "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";
+    private final String API_KEY = "";
 
     public String generateSummary(String content) {
         try {
