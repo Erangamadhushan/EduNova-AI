@@ -12,7 +12,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String role; // "user" or "assistant"
+    private String role;
 
     @Column(length = 5000)
     private String content;

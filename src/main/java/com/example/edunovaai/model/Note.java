@@ -1,7 +1,5 @@
 package com.example.edunovaai.model;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.Data;
 import jakarta.persistence.*;
 

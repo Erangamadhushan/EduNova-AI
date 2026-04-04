@@ -1,9 +1,11 @@
 package com.example.edunovaai.controller;
 
+import com.example.edunovaai.model.DTO.ChatResponse;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import com.example.edunovaai.model.Message;
+import com.example.edunovaai.model.DTO.ChatRequest;
 import com.example.edunovaai.service.ChatService;
 
 @RestController
@@ -17,10 +19,18 @@ public class ChatController {
         this.chatService = chatService;
     }
 
-    @PostMapping
-    public Message sendMessage(@RequestParam(required = false) Long conversationId,
-                               @RequestBody String question) {
-        return chatService.sendMessage(conversationId, question);
+    @PostMapping("/conversations")
+    public ChatResponse startConversation(@RequestBody ChatRequest request) {
+        return chatService.startConversation(request.getQuestion());
+    }
+
+    // ✅ Send message to existing conversation
+    @PostMapping("/{conversationId}/messages")
+    public ChatResponse sendMessage(
+            @PathVariable Long conversationId,
+            @RequestBody ChatRequest request
+    ) {
+        return chatService.sendMessage(conversationId, request.getQuestion());
     }
 
     @GetMapping("/conversations")

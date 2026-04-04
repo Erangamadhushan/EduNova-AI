@@ -15,5 +15,4 @@ public class ChatRequest {
 
     private String question;
 
-    // getters and setters
 }
